@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html data-bs-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>.ll-nam{color:#2196f3}.ll-num{color:#ec407a}.ll-str{color:#43a047}.ll-rex{color:#ef6c00}.ll-pct{color:#666}.ll-key{color:#555;font-weight:bold}.ll-com{color:#aaa;font-style:italic}</style>
+  <title>Binary CTF 2024</title>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="http://103.191.240.56/themes/core-beta/static/img/favicon.ico?d=2edf0ebe" type="image/x-icon">
+
+  
+
+  
+    <link rel="stylesheet" href="./main.0c7144ba.css">
+  
+
+  
+
+  <script src="./color_mode_switcher.52334129.js"></script>
+
+  <script type="text/javascript">
+      window.init = {
+          'urlRoot': "",
+          'csrfNonce': "ddfebe639519c36e68e67390d70bc6383731966169c8750f71e3c8a5b7e4404f",
+          'userMode': "users",
+          'userId': 0,
+          'userName': null,
+          'userEmail': null,
+          'teamId': null,
+          'teamName': null,
+          'start': null,
+          'end': null,
+          'themeSettings': null,
+          'eventSounds': [
+            "/themes/core/static/sounds/notification.webm",
+            "/themes/core/static/sounds/notification.mp3",
+          ],
+      }
+  </script>
+
+  
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a href="http://103.191.240.56/" class="navbar-brand">
+      
+        Binary CTF 2024
+      
+    </a>
+
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#base-navbars" aria-controls="base-navbars" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="base-navbars">
+      <ul class="navbar-nav me-auto">
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" href="http://103.191.240.56/users">
+              Users
+            </a>
+          </li>
+
+          
+        
+
+        
+          <li class="nav-item">
+            <a class="nav-link" href="http://103.191.240.56/scoreboard">
+              Scoreboard
+            </a>
+          </li>
+        
+
+        <li class="nav-item">
+          <a class="nav-link" href="http://103.191.240.56/challenges">
+            Challenges
+          </a>
+        </li>
+      </ul>
+
+      <hr class="d-sm-flex d-md-flex d-lg-none">
+
+      <ul class="navbar-nav ms-md-auto d-block d-sm-flex d-md-flex">
+        
+
+          
+            <li class="nav-item">
+              <a class="nav-link" href="http://103.191.240.56/register">
+                <span data-bs-toggle="tooltip" data-bs-placement="bottom" aria-label="Register" data-bs-original-title="Register">
+                  <i class="fas fa-user-plus d-none d-md-inline d-lg-none"></i>
+                </span>
+                <span class="d-sm-inline d-md-none d-lg-inline">
+                  <i class="fas fa-user-plus pe-1"></i>
+                  Register
+                </span>
+              </a>
+            </li>
+          
+
+          <li class="nav-item">
+            <a class="nav-link" href="http://103.191.240.56/login">
+              <span data-bs-toggle="tooltip" data-bs-placement="bottom" aria-label="Login" data-bs-original-title="Login">
+                <i class="fas fa-sign-in-alt d-none d-md-inline d-lg-none"></i>
+              </span>
+              <span class="d-sm-inline d-md-none d-lg-inline">
+                <i class="fas fa-sign-in-alt pe-1"></i>
+                Login
+              </span>
+            </a>
+          </li>
+        
+        <li class="nav-item">
+          <button class="nav-link theme-switch" type="button">
+            <span data-bs-toggle="tooltip" data-bs-placement="bottom" aria-label="Toggle theme" data-bs-original-title="Toggle theme">
+              <i class="fas d-none d-md-inline fa-moon"></i>
+            </span>
+            <span class="d-sm-inline d-md-none">
+              <i class="fas fa-sun pe-1"></i>
+              Toggle theme
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main role="main">
+  
+  <div class="jumbotron">
+    <div class="container">
+      <h1>
+        Scoreboard
+      </h1>
+    </div>
+  </div>
+  <div class="container">
+    <div>
+  
+
+  
+</div>
+
+   
+
+    <div id="scoreboard" class="row" x-data="ScoreboardList">
+      <template x-if="brackets.length &amp;&amp; standings.length"></template>
+
+      <div class="col-md-12" x-show="standings.length">
+        <table class="table table-striped align-middle">
+          <thead>
+          <tr>
+            <th style="width: 10px">Place</th>
+            <th class="text-start ps-3">User</th>
+            <th>Score</th>
+          </tr>
+          </thead>
+
+          <tbody>
+            <template x-for="(standing, index) in standings.filter(i =&gt; activeBracket ? i.bracket_id==activeBracket : true)"></template><tr>
+                <th scope="row" class="text-center" x-text="index + 1">1</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/14">khaled</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">1000</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">2</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/21">Al Sajid</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">700</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">3</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/28">jakaria.jp</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">600</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">4</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/22">iyaj</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">600</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">5</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/10">Rana0x0</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">6</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/18">Umme Kulsum Shimla</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">7</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/15">Jakia Sultana</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">8</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/32">Marjana Akter Tenny</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">9</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/19">Purnima Akter</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">10</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/17">Jerin Aslam</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">11</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/29">Robiul Hasan</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">12</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/16">Jannatul ferdous</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">13</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/37">Tamim Sheikh</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">14</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/20">Khadiza</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">15</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/7">rifathasan</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">16</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/41">iconic_sHADOW</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">550</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">17</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/26">Raisul001</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">400</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">18</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/33">Md Rakib</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">400</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">19</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/31">Mahamodul Hasan</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">20</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/30">MD. Mozahid Hassan.</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">21</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/12">Mahidul Islam</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">22</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/11">Eisam.03</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">23</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/40">Lijan</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">24</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/6">Sahbir Rahman</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">25</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/13">Mashrif</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">350</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">26</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/9">Mohammad Habibullah</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">250</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">27</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/8">Abdullah Al Himel</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">150</td>
+              </tr><tr>
+                <th scope="row" class="text-center" x-text="index + 1">28</th>
+                <td class="text-start">
+                  <a :href="standing.account_url" x-text="standing.name" href="http://103.191.240.56/users/38">codo_Sapiens</a>
+                  <template x-if="standing.bracket_name"></template>
+                </td>
+                <td x-text="standing.score">50</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-12" x-show="! standings.length" style="display: none;">
+        <h3 class="text-center text-muted">Scoreboard is empty</h3>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container text-center">
+    <a href="https://ctfd.io/" class="text-secondary">
+      <small class="text-muted">
+        Powered by CTFd
+      </small>
+    </a>
+  </div>
+</footer>
+
+<div x-data="">
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div x-ref="toast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <strong class="me-auto" x-text="$store.toast.title"></strong>
+        <small>just now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body" x-html="$store.toast.html"></div>
+    </div>
+  </div>
+</div>
+
+
+<div x-data="">
+  <div class="modal fade" x-ref="modal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" x-text="$store.modal.title"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p x-html="$store.modal.html"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Got it!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <script type="module" src="./index.2e31e3b8.js"></script><script type="module" src="./index.1cf73b05.js"></script><script type="module" src="./echarts.128204f2.js"></script><script type="module" src="./scoreboard.b1c04d97.js"></script>
+
+
+
+
+
+
+</body></html>
